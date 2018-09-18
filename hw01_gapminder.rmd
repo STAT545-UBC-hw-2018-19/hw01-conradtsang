@@ -1,0 +1,43 @@
+---
+title: "Homework01_gapminder"
+author: "Conrad Tsang"
+date: "18/09/2018"
+output: github_document
+---
+
+Part of Homework 1 has asked us to create an R Markdown for exploration.  I decided to use Gapminder mainly because the plots at the end were quite mesmerizing to look at.  That and there's *some* relevance to my work in public health, so I'm using this as an opportunity to explore the basics of looking at data if I was thinking about someday analyzing this..
+
+First we can look at some of the summary statistics of Gapminder.
+
+```{r}
+library(gapminder)
+summary(gapminder)
+```
+
+In particular, I'd need to know how many rows and columns there are without needing to add or count the above.
+
+```{r}
+nrow(gapminder)
+ncol(gapminder)
+```
+
+Let's just make sure the data contains the most important country: Canada!
+
+```{r}
+attach(gapminder)
+any(country == "Canada")
+```
+
+Phew!  How many countries are there in gapminder anyway?
+
+```{r}
+length(levels(country))
+```
+
+Lastly, just wanted to get a sense if there was data missing.
+
+```{r}
+any(is.na(gapminder))
+```
+
+That took more trial-and-error trying to look up some of the later things above.  I'm glad we'll eventually start to learn how to do this!
